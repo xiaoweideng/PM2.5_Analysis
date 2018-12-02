@@ -3,7 +3,6 @@ title: "DSCI 522 Analysis of PM 2.5 in Beijing and Shanghai"
 author: "Ting Pan, Weishun Deng"
 date: "November 22, 2018"
 output: github_document
-always_allow_html: yes
 ---
 # Report
 
@@ -25,7 +24,7 @@ SH_data <- SH_data %>%
 
 *Table 1. Beijing PM2.5 Raw Dataset*
 ```{r, echo = FALSE}
-kable(head(BJ_data)) %>% kable_styling(position = "center")
+kable(head(BJ_data))
 ```
 
 There are four monitoring sites in Beijing:Dongsi, Dongsihuan, Nongzhanguan, US.Post.
@@ -33,7 +32,7 @@ There are four monitoring sites in Beijing:Dongsi, Dongsihuan, Nongzhanguan, US.
 
 *Table 2. Shanghai PM2.5 Raw Dataset*
 ```{r, echo = FALSE}
-kable(head(SH_data)) %>% kable_styling(position = "center")
+kable(head(SH_data))
 ```
 
 There are three monitoring sites in Shanghai:Jingan, US.Post, Xuhui.
@@ -57,7 +56,7 @@ To analyze the data efficiently, we need to deal the missing data carefully. We 
 *Table 3. Beijing and Shanghai PM2.5 Tidy Dataset*
 ```{r fig.align="center", echo = FALSE}
 BJSH_data <- read.csv("../data/tidy_data.csv")
-kable(head(BJSH_data)) %>% kable_styling(position = "center")
+kable(head(BJSH_data))
 ```
 
 
@@ -101,8 +100,7 @@ plyr::rename(summarized_data, c("n" = "number of sample",
                           "se_PM" = "standard deviation",
                           "lower_ci" = "lower bound of C.I.",
                           "upper_ci" = "upper bound of C.I.")) %>%
-  kable() %>%
-  kable_styling(position = "center")
+  kable()
 ```
 
 First thing we can find out from `Table 4` is that they have different sizes of non-NA data. There should be 2191 days bwtween Jan 1st 2010 to Dec 31st, 2015, however, PM2.5 only recorded 2155 days in Beijing and 1460 days in Shanghai.
@@ -126,8 +124,7 @@ results %>%
            "conf.low" = "lower bound of C.I.",
            "conf.high" = "upper bound of C.I.")) %>%
   head() %>% 
-  kable(digits = 100) %>%
-  kable_styling(position = "center")
+  kable(digits = 100)
 ```
 
 As we can see in `Table 5`, p-value is extremely small and this is a strong evidence to reject the null hypothesis.
