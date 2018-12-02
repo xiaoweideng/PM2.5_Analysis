@@ -60,10 +60,10 @@ make results/summarized_data.csv
 # dependency: tidyverse, broom
 make results/results.csv results/testplot.png
 # input all above results and render md version of the report
-# dependency: rmarkdownm, knitr, tidyverse and kableExtra
+# dependency: rmarkdownm, knitr, tidyverse
 make doc/Report.md
 # render html version of the report
-# dependency: rmarkdownm, knitr, tidyverse and kableExtra
+# dependency: rmarkdownm, knitr, tidyverse
 doc/Report.html
 ```
 
@@ -81,4 +81,3 @@ make clean
     - `knitr` Version 1.20
     - `tidyverse` Version 1.2.1
     - `broom` Version 0.5.0
-    - `kableExtra` Version 0.9.0
